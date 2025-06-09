@@ -1,3 +1,7 @@
+# tips from:
+# https://stackoverflow.com/questions/26745284/cmake-not-finding-gl-h-on-os-x
+# https://stackoverflow.com/questions/55771792/error-when-compiling-opengl-program-on-macosx-ld-library-not-found-for-lopen
+
 PREFIX?=/usr/local
 
 DATADIR?=./themes/
@@ -11,7 +15,10 @@ CXXFLAGS+=-Wall `sdl-config --cflags` -DDATADIR="\"$(DATADIR)\""
 
 #append -lwiiuse to compile with WIIUSE support
 #remove -lSDL_mixer if compiling with -DNOSOUND
-LIBS+=-lGL -lGLU `sdl2-config --libs` -lSDL2_image -lSDL2_ttf -lSDL2_mixer
+# linux
+#LIBS+=-lGL -lGLU `sdl2-config --libs` -lSDL2_image -lSDL2_ttf -lSDL2_mixer
+# macosx
+LIBS+=-framework OpenGL `sdl2-config --libs` -lSDL2_image -lSDL2_ttf -lSDL2_mixer
 
 SOURCES=main.cpp display.cpp
 OBJECTS=$(SOURCES:.cpp=.o)

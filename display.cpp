@@ -23,8 +23,13 @@
  *      Author: Daniel Gullberg daniel_gullberg@hotmail.com
  */
 #include <iostream>
+#if defined(__APPLE__)
+#include <OpenGL/gl.h>
+#include <OpenGL/glu.h>
+#else
 #include <GL/gl.h>
 #include <GL/glu.h>
+#endif
 #include <SDL2/SDL.h>
 #include "display.hpp"
 
@@ -42,8 +47,9 @@ bool displayClass::init(bool fullscreen, int displayToUseIn)
   SDL_Init(SDL_INIT_VIDEO);
 
   // Get current display mode of all displays.
-  numOfDisplays = SDL_GetNumVideoDisplays();
-  SDL_Rect displayBounds[numOfDisplays]={0};
+  // numOfDisplays = SDL_GetNumVideoDisplays();
+  // SDL_Rect displayBounds[numOfDisplays]={0};
+  SDL_Rect displayBounds[0]={};
 
   for(int i = 0; i < numOfDisplays; ++i){
 
