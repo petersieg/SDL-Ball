@@ -1,6 +1,25 @@
 -- SDL-Ball --
- - A DX-Ball/MegaBall/Breakout clone for linux+friends (and windows)
+ - A DX-Ball/MegaBall/Breakout clone for linux+friends (and windows) (and maxosx)
    with pretty graphics.
+
+Changes for osx in main.cpp and display.cpp:
+'''
+#if defined(__APPLE__)
+#include <OpenGL/gl.h>
+#include <OpenGL/glu.h>
+#else
+#include <GL/gl.h>
+#include <GL/glu.h>
+#endif
+'''
+... and within Makefile.osx:
+LIBS+=-framework OpenGL `sdl2-config --libs` -lSDL2_image -lSDL2_ttf -lSDL2_mixer
+
+These tips I found at:
+* https://stackoverflow.com/questions/26745284/cmake-not-finding-gl-h-on-os-x
+* https://stackoverflow.com/questions/55771792/error-when-compiling-opengl-program-on-macosx-ld-library-not-found-for-lopen
+
+
 
 -- Index --
 1.0 SDL-Ball Info and License
