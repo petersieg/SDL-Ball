@@ -3,7 +3,7 @@
    with pretty graphics.
 
 Changes for osx in main.cpp and display.cpp:
-'''
+```
 #if defined(__APPLE__)
 #include <OpenGL/gl.h>
 #include <OpenGL/glu.h>
@@ -11,7 +11,7 @@ Changes for osx in main.cpp and display.cpp:
 #include <GL/gl.h>
 #include <GL/glu.h>
 #endif
-'''
+```
 ... and within Makefile.osx:
 LIBS+=-framework OpenGL `sdl2-config --libs` -lSDL2_image -lSDL2_ttf -lSDL2_mixer
 
