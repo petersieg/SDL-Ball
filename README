@@ -20,7 +20,6 @@ https://stackoverflow.com/questions/26745284/cmake-not-finding-gl-h-on-os-x
 https://stackoverflow.com/questions/55771792/error-when-compiling-opengl-program-on-macosx-ld-library-not-found-for-lopen
 
 
-
 -- Index --
 1.0 SDL-Ball Info and License
 1.1 Objective
@@ -226,10 +225,10 @@ lvltheme - Case sensetive name of the level-theme dir to use.
 The basic requirements for compiling sdl-ball is the following libs AND THEIR DEVELOPMENT FILES:
 OpenGL
 LibGLU
-SDL1.2
-SDL-image1.2
-SDL-ttf1.2
-SDL-mixer1.2
+SDL2
+SDL2-image
+SDL2-ttf
+SDL2-mixer
 Make, a working C++ compiler and stdlibc++6
 
 To compile, extract the SDL-Ball tarball (since you're reading this I figure you allready did) and cd into the dir.
